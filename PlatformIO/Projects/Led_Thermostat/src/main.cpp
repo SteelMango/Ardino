@@ -5,6 +5,7 @@
 
 // Global Variables
 int  error_ledPin = 2;
+int on_ledPin = 12;
 #define DHTPIN 21
 #define DHTTYPE DHT11
 
@@ -19,7 +20,7 @@ float temp = dht.readTemperature();
 
 
 
-void error_led(){
+void error_led(){   // So far the led is always on, add future code to change if nan
   digitalWrite(error_ledPin, HIGH);
   delay(250);
   digitalWrite(error_ledPin, LOW);
@@ -54,10 +55,10 @@ void setup() {
   pinMode(cold_led_pin, OUTPUT);
   pinMode(tepid_led_pin, OUTPUT);
 
-  // LED Dimming
-  ledcSetup(0, 5000, 8);
-  ledcAttachPin(13, 0);
+  // Other Communication Leds (On_led and Error_Led)
+  pinMode(on_ledPin, OUTPUT);
 
+ 
 
 
 
@@ -68,10 +69,19 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  ledcWrite(0, 10);   // On LED
+  // LEDs
   error_led();
   check_temp_leds();
+
+  // Dimming the LEDS
+  analogWrite(on_ledPin, 5);
+  analogWrite(hot_led_pin, 5);
+  analogWrite(tepid_led_pin, 5);
+  analogWrite(cold_led_pin, 5);
+
+
+
+
   float temp = dht.readTemperature();      
   float humidity = dht.readHumidity();     
 
