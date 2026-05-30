@@ -15,6 +15,30 @@ int g = 23;
 
 const int list_pins[7] = {a, b, c, d, e, f, g};
 
+void num6() {
+  digitalWrite(a, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+
+}
+
+void num7() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+}
+
+void clear() {
+  for (int i = 0; i < 7; i++) {
+    digitalWrite(list_pins[i], LOW);
+
+  }
+
+}
+
 void setup() {
   // iterate through list_pins to set pinmode
   for (int i = 0; i < 7; i++) {
@@ -23,8 +47,14 @@ void setup() {
 }
 
 void loop() {
-  for (int i = 0; i < 7; i++) {
-    digitalWrite(list_pins[i], HIGH);
-  }
+  num6();
+  delay(1000);
+  clear();
+  delay(1000);
+  num7();
+  delay(1000);
+  clear();
+  delay(1000);
+  
 }
 
