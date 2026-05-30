@@ -15,6 +15,51 @@ int g = 23;
 
 const int list_pins[7] = {a, b, c, d, e, f, g};
 
+void num0() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+}
+
+void num1() {
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+}
+
+void num2() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(d, HIGH);
+}
+
+void num3() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+}
+
+void num4() {
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+}
+
+void num5() {
+  digitalWrite(a, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+}
+
 void num6() {
   digitalWrite(a, HIGH);
   digitalWrite(f, HIGH);
@@ -31,11 +76,40 @@ void num7() {
   digitalWrite(c, HIGH);
 }
 
+void num8() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+}
+
+void num9() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+}
+
 void clear() {
   for (int i = 0; i < 7; i++) {
     digitalWrite(list_pins[i], LOW);
-
   }
+}
+
+void flash67() {
+  num6();
+  delay(1000);
+  clear();
+  delay(1000);
+  num7();
+  delay(1000);
+  clear();
+  delay(1000);
 
 }
 
@@ -47,14 +121,7 @@ void setup() {
 }
 
 void loop() {
-  num6();
-  delay(1000);
-  clear();
-  delay(1000);
-  num7();
-  delay(1000);
-  clear();
-  delay(1000);
+  flash67();
   
 }
 
