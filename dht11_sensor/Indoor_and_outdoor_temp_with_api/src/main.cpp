@@ -4,7 +4,7 @@ const int dataPin = 21;
 const int clockPin = 22;
 const int latchPin = 19; 
 
-// D1, D2, D3, D4 pins should be paired to the microcontroller directly.
+// D1, D2, D3, D4 pins should be paired to the microcontroller directly
 const int dig4 = 4;
 
 byte segment_dig4[] = {
