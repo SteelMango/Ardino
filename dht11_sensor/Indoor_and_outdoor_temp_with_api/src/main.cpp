@@ -4,6 +4,8 @@ const int dataPin = 21;
 const int clockPin = 22;
 const int latchPin = 19; 
 
+// Need to first have latch to low, load then set latch to high for screenshot
+
 // D1, D2, D3, D4 pins should be paired to the microcontroller directly.
 const int dig4 = 4;
 const int dig1 = 2;
@@ -17,7 +19,7 @@ byte segC = 0b00100000;
 byte segD = 0b00010000;
 byte segE = 0b00001000;
 byte segF = 0b00000100;
-byte segG = 0b00000010;
+byte segG = 0b00000001;   // ISSUE HERE!
 
 byte all_On = 0b11111111;
 byte all_Off = 0b00000000;
@@ -49,6 +51,15 @@ void show_digit(int digitPin, byte segment) {
   delay(1);
 }
 
+void show_celcius_digit3() {
+  turn_off_all_digits();
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin, clockPin, MSBFIRST, segA | segB | segC | segG);
+  digitalWrite(latchPin, HIGH);
+  digitalWrite(dig3, LOW);
+  delay(1);
+
+}
 
 void setup() {
   // Shift Register 
@@ -65,5 +76,7 @@ void setup() {
 }
 
 void loop() {
-  show_digit(dig1, segA);
+  show_digit(dig1, segG);   // i think these are the same
+  show_celcius_digit3();
+
 }
