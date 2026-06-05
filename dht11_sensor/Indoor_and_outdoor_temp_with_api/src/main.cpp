@@ -31,15 +31,12 @@ byte num3 = segB | segG | segC | segD | segE;
 byte num4 = segA | segC | segG | segD;
 byte num5 = segB | segA | segC | segD | segE;
 
-byte num6 = segB | segA | segC | segF | segG | segE;
+byte num6 = segB | segA | segC | segF | segD | segE;
 byte num7 = segB | segG | segD;
 byte num8 = segB | segA | segG | segC | segF | segD | segE;
 byte num9 = segB | segA | segG | segC | segD | segE;
 byte num0 = segB | segA | segG |  segF | segD | segE | segF;
-
-
-
-
+byte nums[] = {num0, num1, num2, num3, num4, num5, num6, num7, num8, num9};
 
 void iterate_all_pins() {
   for (int i = 0; i < 256; i++) {
@@ -83,8 +80,18 @@ void show_celcius() {
   digitalWrite(latchPin, HIGH);
   digitalWrite(dig4, LOW);
   delay(1);
-
 }
+
+void iterate_numbers() {
+  for (int i = 0; i < 10; i++) {       
+    unsigned long start = millis();
+    while (millis() - start < 1000) {   
+      show_digit(dig1, nums[i]);        
+      show_celcius();                
+    }
+  }
+}
+
 
 void setup() {
   // Shift Register 
@@ -101,6 +108,7 @@ void setup() {
 }
 
 void loop() {
-  show_celcius();
+  // show_celcius();
+  iterate_numbers();
 
 }
