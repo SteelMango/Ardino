@@ -24,6 +24,22 @@ byte segG = 0b00000001;
 byte all_On = 0b11111111;
 byte all_Off = 0b00000000;
 
+// Combining segments to make the numbers 0-9
+byte num1 = segG | segD;
+byte num2 = segB | segG | segC | segF | segE;
+byte num3 = segB | segG | segC | segD | segE;
+byte num4 = segA | segC | segG | segD;
+byte num5 = segB | segA | segC | segD | segE;
+
+byte num6 = segB | segA | segC | segF | segG | segE;
+byte num7 = segB | segG | segD;
+byte num8 = segB | segA | segG | segC | segF | segD | segE;
+byte num9 = segB | segA | segG | segC | segD | segE;
+byte num0 = segB | segA | segG |  segF | segD | segE | segF;
+
+
+
+
 
 void iterate_all_pins() {
   for (int i = 0; i < 256; i++) {
