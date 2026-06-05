@@ -6,6 +6,7 @@ const int latchPin = 19;
 
 // D1, D2, D3, D4 pins should be paired to the microcontroller directly.
 const int dig4 = 4;
+const int dig1 = 2;
 
 byte segment_dig4[] = {
   0b01000000,
@@ -48,6 +49,9 @@ void setup() {
 
   pinMode(dig4, OUTPUT);
   digitalWrite(dig4, LOW);
+
+  pinMode(dig1, OUTPUT);
+  digitalWrite(dig1, LOW);
 }
 
 void loop() {
