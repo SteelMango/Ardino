@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 
 const int dataPin = 21;
 const int clockPin = 22;
