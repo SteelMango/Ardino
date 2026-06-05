@@ -1,9 +1,17 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
+// TODO: FIGURE OUT HOW TO CONNECT ARDUINO TO THE WIFI
+/* HOW TO DO API KEY
+
+*/
+
 const int dataPin = 21;
 const int clockPin = 22;
 const int latchPin = 19; 
+
+// API stuff
+String url = "https://api.open-meteo.com/v1/forecast?latitude=53.543&longitude=-2.6371&hourly=temperature_2m&forecast_days=1";
 
 // Need to first have latch to low, load then set latch to high for screenshot
 
