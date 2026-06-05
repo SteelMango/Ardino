@@ -19,7 +19,7 @@ byte segC = 0b00100000;
 byte segD = 0b00010000;
 byte segE = 0b00001000;
 byte segF = 0b00000100;
-byte segG = 0b00000001;   // ISSUE HERE!
+byte segG = 0b00000001;  
 
 byte all_On = 0b11111111;
 byte all_Off = 0b00000000;
@@ -51,12 +51,21 @@ void show_digit(int digitPin, byte segment) {
   delay(1);
 }
 
-void show_celcius_digit3() {
+void show_celcius() {
+  // Make the tiny * for the Celcius
   turn_off_all_digits();
   digitalWrite(latchPin, LOW);
   shiftOut(dataPin, clockPin, MSBFIRST, segA | segB | segC | segG);
   digitalWrite(latchPin, HIGH);
   digitalWrite(dig3, LOW);
+  delay(1);
+
+  // Make digit 4 show the C for Celcius
+  turn_off_all_digits();
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin, clockPin, MSBFIRST, segB | segA | segF | segE);
+  digitalWrite(latchPin, HIGH);
+  digitalWrite(dig4, LOW);
   delay(1);
 
 }
@@ -76,7 +85,6 @@ void setup() {
 }
 
 void loop() {
-  show_digit(dig1, segG);   // i think these are the same
-  show_celcius_digit3();
+  show_celcius();
 
 }
