@@ -9,8 +9,8 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);   
 
 // Global Variables
-const char* ssid = "Mango";
-const char* password = "mangoloco";
+const char* ssid = "mangomango";
+const char* password = "mangomango";
 const char* url = "https://api.open-meteo.com/v1/forecast?latitude=53.543&longitude=-2.6371&current=temperature_2m";
 
 WiFiClientSecure wifi;
